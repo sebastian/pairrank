@@ -1,0 +1,159 @@
+header {
+  grid-area: header;
+}
+
+footer {
+  grid-area: footer;
+}
+
+.ws-page {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+/*** General styles *************************************/
+
+input {
+  width: 100%;
+}
+
+button {
+  width: 100%;
+}
+
+button[disabled] {
+  color: lightgray;
+  border-color: lightgray;
+}
+
+/*** Styles for entry page where items are added ********/
+
+#item-entry {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header"
+    "new-entry-form"
+    "content"
+    "footer";
+  align-content: start;
+  height: 100%;
+}
+
+#item-entry #new-entry-form {
+  grid-area: new-entry-form;
+  padding-bottom: 2rem;
+}
+
+#item-entry #content {
+  grid-area: content;
+  overflow: scroll;
+}
+
+#item-entry footer {
+  padding-top: 2rem;
+}
+
+#content ul {
+  margin-left: -2rem;
+  list-style: none;
+}
+
+#content li {
+  display: grid;
+  grid-template-columns: 2rem auto 140px 2rem;
+  font-size: 2rem;
+  border-bottom: solid 0.1rem lightgray;
+}
+
+#content li:last-child {
+  border-bottom: none;
+}
+
+#content li span.value {
+  grid-column: 2 / 3;
+}
+
+#content li button {
+  grid-column: 3 / 4;
+}
+
+button.remove {
+  margin-left: 2rem;
+  right: 2rem;
+  width: unset;
+}
+
+/*** Comparison styles **********************************/
+
+#comparison {
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-template-areas: 
+    "header"
+    "item"
+    "item";
+  height: 100%;
+}
+
+div.item {
+  height: 100%;
+  align-self: center;
+  justify-self: stretch;
+  width: 100%;
+}
+
+div.item .alternative-value {
+  font-size: 3.5rem;
+  cursor: pointer;
+}
+
+/*** Result presentation ********************************/
+
+#result {
+  display: grid;
+  grid-template-rows: 10rem auto auto;
+  grid-template-areas: 
+    "header"
+    "result"
+    "footer";
+  height: 100%;
+}
+
+#result #result-list {
+  grid-area: result;
+}
+
+li.result-line {
+  display: grid;
+  grid-template-rows: 1fs 2fs;
+  font-size: 3rem;
+  border-bottom: solid 0.1rem lightgray;
+  padding-bottom: 1rem;
+}
+
+li.result-line:last-child {
+  border-bottom: none;
+}
+
+.result-line span.num-votes {
+  grid-row: 1 / 2;
+  font-size: 2rem;
+}
+
+.result-line span.value {
+  grid-row: 2 / 3;
+  font-size: 3rem;
+}
+
+
+#main {
+  padding: 2rem;
+  font-size: 2rem;
+
+  height: calc(100% - 4rem);
+  max-width: 500px;
+  width: calc(100% - 4rem);
+  position: absolute;
+}

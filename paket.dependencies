@@ -1,0 +1,16 @@
+source https://www.nuget.org/api/v2
+
+nuget Expecto
+nuget FSharp.Core
+
+nuget Microsoft.AspNetCoRe.All ~> 2.0.5
+nuget WebSharper ~> 4.5.2
+nuget WebSharper.AspNetCore ~> 4.5.1
+nuget WebSharper.FSharp ~> 4.5.2
+nuget WebSharper.UI ~> 4.5.2
+nuget WebSharper.Mvu ~> 4.5.2
+
+group Build
+source https://www.nuget.org/api/v2
+
+nuget FAKE

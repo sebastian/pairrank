@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>PairRankWeb</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="css/pairrank.css" />
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <style>
+      [ws-template], [ws-hole], [ws-children-template] { display: none; }
+    </style>
+    <script type="text/javascript" src="Content/PairRankWeb.head.js"></script>
+  </head>
+
+  <body>
+    <div id="main"></div>
+
+    <!-- -------------------------------------------------------------
+    # TEMPLATES 
+    # --------------------------------------------------------------->
+
+    <!-- -------------------------------------------------------------
+    # Main front page
+    # --------------------------------------------------------------->
+
+    <div ws-template="MainPage" class="all-height">
+      <header>
+        <h1>Pair Rank</h1>
+      </header>
+      <p>
+        Pair ranking is an approach to ranking items by preference
+        where you take each pair of items into account in turn 
+        and consider which is preferable.
+      </p>
+      <p>
+        The final ordering (or rank) of the items is determined
+        by how many times an item was considered the better item.
+      </p>
+      <button ws-onclick="ClickNext">Next: Rank some items!</button>
+    </div>
+
+
+    <!-- -------------------------------------------------------------
+    # Page for entering new items to compare
+    # --------------------------------------------------------------->
+
+    <div ws-template="ItemEntryPage" id="item-entry">
+      <header>
+        <h1>Things to order</h1>
+      </header>
+
+      <div id="new-entry-form">
+        <label for="ranking-item">Item to rank</label>
+        <input id="ranking-item" type="text" ws-onkeydown="PendingNewItemKeyDown" ws-var="PendingNewItemVar" autofocus/>
+        <button ws-onclick="AddItem" ws-attr="AddItemAttr">Add item</button>
+      </div>
+
+      <div id="content" ws-hole="Content"></div>
+
+      <footer>
+        <button ws-onclick="ClickNext" ws-attr="ClickNextAttr">
+          Next: Start ranking
+        </button>
+      </footer>
+    </div>
+
+    <div ws-children-template="ItemsTemplate">
+      <p ws-attr="ItemsHeaderAttr">
+        Here are your items:
+      </p>
+      <ul ws-hole="ItemsHole" />
+    </div>
+
+    <div ws-children-template="ItemTemplate">
+      <li class="item-li">
+        <span class="value">${Value}</span>
+        <button ws-onclick="RemoveItem" class="remove">remove</burron>
+      </li>
+    </div>
+
+
+    <!-- -------------------------------------------------------------
+    # Page for comparing items
+    # --------------------------------------------------------------->
+
+    <div ws-template="ComparisonTemplate" id="comparison">
+      <header>
+        <h1>Which do you prefer?</h1>
+      </header>
+
+      <div class="item" ws-onclick="AWins">
+        <div class="alternative-heading">Alternative 1:</div>
+        <div class="alternative-value">${ValueA}</div>
+      </div>
+      <div class="item" ws-onclick="BWins">
+        <div class="alternative-heading">Alternative 2:</div>
+        <div class="alternative-value">${ValueB}</div>
+      </div>
+    </div>
+
+
+    <!-- -------------------------------------------------------------
+    # Page for looking at the final results items
+    # --------------------------------------------------------------->
+
+    <div ws-template="ResultsTemplate" id="result">
+      <header>
+        <h1>Ranked items</h1>
+      </header>
+      <ul ws-hole="Results" id="result-list"></ul>
+      <button ws-onclick="StartOver">Start over</button>
+    </div>
+
+    <div ws-children-template="ResultsItemTemplate">
+      <li class="result-line">
+        <span class="num-votes">Votes: ${VoteCount}</span>
+        <span class="value">${Value}</span>
+      </li>
+    </div>
+
+    <script type="text/javascript" src="Content/PairRankWeb.min.js"></script>
+  </body>
+</html>

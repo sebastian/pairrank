@@ -1,0 +1,7 @@
+FSharp.Core
+Microsoft.AspNetCore.All
+WebSharper 
+WebSharper.FSharp 
+WebSharper.UI
+WebSharper.Mvu
+WebSharper.AspNetCore
