@@ -8,7 +8,7 @@ footer {
 
 .ws-page {
   height: 100%;
-  width: 100%;
+  width: calc(100% - 4rem);
   position: absolute;
 }
 
@@ -62,7 +62,7 @@ button[disabled] {
 
 #content li {
   display: grid;
-  grid-template-columns: 2rem auto 140px 2rem;
+  grid-template-columns: 2rem auto 140px;
   font-size: 2rem;
   border-bottom: solid 0.1rem lightgray;
 }
