@@ -25,12 +25,18 @@ type Startup() =
                 context.Response.WriteAsync("Page not found"))
 
 module Program =
+    let url =
+        let defaultPort = "5000"
+        let port = match System.Environment.GetEnvironmentVariable("PORT") with
+                   | null -> defaultPort
+                   | value -> value
+        "http://localhost:" + port
 
     [<EntryPoint>]
     let main args =
         WebHost
             .CreateDefaultBuilder(args)
-            .UseUrls("http://localhost:4000")
+            .UseUrls(url)
             .UseStartup<Startup>()
             .Build()
             .Run()
