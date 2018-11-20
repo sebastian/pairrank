@@ -30,7 +30,7 @@ module Program =
         let port = match System.Environment.GetEnvironmentVariable("PORT") with
                    | null -> defaultPort
                    | value -> value
-        "http://localhost:" + port
+        "http://0.0.0.0:" + port
 
     [<EntryPoint>]
     let main args =
