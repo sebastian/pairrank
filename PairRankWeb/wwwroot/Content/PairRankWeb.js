@@ -580,7 +580,7 @@ if (!console) {
  {
   var m;
   m=model.EndPoint;
-  return m.$==1?(Pages.ItemEntry())():m.$==2?(Pages.CompareItems())():m.$==3?(Pages.Result())():(Pages.MainPage())();
+  return m.$==1?(Pages.ItemEntry())():m.$==2?(Pages.CompareItems())():m.$==3?(Pages.Result())():m.$==4?(Pages.PrivacyPolicy())():(Pages.MainPage())();
  };
  Client.router=function()
  {
@@ -783,11 +783,11 @@ if (!console) {
  };
  PairRankWeb_JsonEncoder.j$1=function()
  {
-  return PairRankWeb_JsonEncoder._v$1?PairRankWeb_JsonEncoder._v$1:PairRankWeb_JsonEncoder._v$1=(Provider.EncodeUnion(void 0,"$",[[0,[]],[1,[]],[2,[]],[3,[]]]))();
+  return PairRankWeb_JsonEncoder._v$1?PairRankWeb_JsonEncoder._v$1:PairRankWeb_JsonEncoder._v$1=(Provider.EncodeUnion(void 0,"$",[[0,[]],[1,[]],[2,[]],[3,[]],[4,[]]]))();
  };
  PairRankWeb_JsonDecoder.j$1=function()
  {
-  return PairRankWeb_JsonDecoder._v$1?PairRankWeb_JsonDecoder._v$1:PairRankWeb_JsonDecoder._v$1=(Provider.DecodeUnion(void 0,"$",[[0,[]],[1,[]],[2,[]],[3,[]]]))();
+  return PairRankWeb_JsonDecoder._v$1?PairRankWeb_JsonDecoder._v$1:PairRankWeb_JsonDecoder._v$1=(Provider.DecodeUnion(void 0,"$",[[0,[]],[1,[]],[2,[]],[3,[]],[4,[]]]))();
  };
  PairRankWeb_Templates.mainpage=function(h)
  {
@@ -845,9 +845,17 @@ if (!console) {
    $0:"resultstemplate"
   },h):void 0;
  };
+ PairRankWeb_Templates.privacypolicytemplate=function(h)
+ {
+  Templates.LoadLocalTemplates("index");
+  return h?Templates.NamedTemplate("index",{
+   $:1,
+   $0:"privacypolicytemplate"
+  },h):void 0;
+ };
  PairRankWeb_Router.r=function()
  {
-  return RouterOperators.JSUnion(void 0,[[null,[[null,[]]],[]],[null,[[null,["addItems"]]],[]],[null,[[null,["compare"]]],[]],[null,[[null,["result"]]],[]]]);
+  return RouterOperators.JSUnion(void 0,[[null,[[null,[]]],[]],[null,[[null,["addItems"]]],[]],[null,[[null,["compare"]]],[]],[null,[[null,["result"]]],[]],[null,[[null,["privacy"]]],[]]]);
  };
  GeneratedPrintf.p$1=function($1)
  {
@@ -1147,6 +1155,14 @@ if (!console) {
     })),t)),(p=Handler.CompleteHoles(b.k,b.h,[]),(i=new TemplateInstance.New(p[1],PairRankWeb_Templates.resultstemplate(p[0])),b.i=i,i))).get_Doc();
    };
   },null,null,null);
+  SC$1.PrivacyPolicy=Page.Single(function()
+  {
+   return function()
+   {
+    var b,p,i;
+    return(b=new ProviderBuilder.New$1(),(p=Handler.CompleteHoles(b.k,b.h,[]),(i=new TemplateInstance.New(p[1],PairRankWeb_Templates.privacypolicytemplate(p[0])),b.i=i,i))).get_Doc();
+   };
+  },null,null,null);
   SC$1.router=PairRankWeb_Router.r();
  };
  T=List.T=Runtime$1.Class({
@@ -1351,6 +1367,11 @@ if (!console) {
  {
   SC$1.$cctor();
   return SC$1.Result;
+ };
+ Pages.PrivacyPolicy=function()
+ {
+  SC$1.$cctor();
+  return SC$1.PrivacyPolicy;
  };
  Pages.MainPage=function()
  {

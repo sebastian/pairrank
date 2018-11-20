@@ -18,7 +18,12 @@
   </head>
 
   <body>
-    <div id="main"></div>
+    <div>
+      <div id="main"></div>
+      <div id="privacy-policy-link">
+        <a href="/#/privacy">Privacy Policy</a>
+      </div>
+    </div>
 
     <!-- -------------------------------------------------------------
     # TEMPLATES 
@@ -121,6 +126,36 @@
         <span class="num-votes">Votes: ${VoteCount}</span>
         <span class="value">${Value}</span>
       </li>
+    </div>
+
+    <!-- -------------------------------------------------------------
+    # Page for the privacy policy
+    # --------------------------------------------------------------->
+
+    <div ws-template="PrivacyPolicyTemplate">
+      <header>
+        <h1>Privacy Policy</h1>
+      </header>
+
+      <p>
+        Pair Rank is a small service written as a friendly gesture to
+        everyone who needs help to prioritise lists of items.
+      </p>
+
+      <p>
+        The service runs entirely in the browser, and beyond standard 
+        web logs collected on the server when you visit the webpage,
+        no information is collected about you. 
+      </p>
+
+      <p>
+        The lists you create, and the votes you give the individual
+        items in your list all remain entirely in your browser.
+        We (as in I, Sebastian) never get to see any of your lists.
+        The intermediate state of the application is saved in the
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage">Local Storage</a>
+        of your browser. That is storage that never leaves your browser at all.
+      </p>
     </div>
 
     <script type="text/javascript" src="Content/PairRankWeb.min.js"></script>

@@ -34,6 +34,7 @@ module Client =
     | [<EndPoint "/addItems">] ItemEntry
     | [<EndPoint "/compare">] CompareItems
     | [<EndPoint "/result">] Result
+    | [<EndPoint "/privacy">] PrivacyPolicy
 
   type Id = int
   type Votes = int
@@ -235,12 +236,19 @@ module Client =
         .Doc()
     )
 
+    let PrivacyPolicy = Page.Single(render = fun _ _ ->
+      Templates
+        .PrivacyPolicyTemplate()
+        .Doc()
+    )
+
   let Render (model: Model) = 
     match model.EndPoint with
     | EndPoint.Home -> Pages.MainPage ()
     | EndPoint.ItemEntry -> Pages.ItemEntry ()
     | EndPoint.CompareItems -> Pages.CompareItems ()
     | EndPoint.Result -> Pages.Result ()
+    | EndPoint.PrivacyPolicy -> Pages.PrivacyPolicy ()
 
   let Navigate (page: EndPoint) (model: Model) : Model =
     { model with EndPoint = page }
