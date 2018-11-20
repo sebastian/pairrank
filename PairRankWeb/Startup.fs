@@ -30,6 +30,7 @@ module Program =
     let main args =
         WebHost
             .CreateDefaultBuilder(args)
+            .UseUrls("http://localhost:4000")
             .UseStartup<Startup>()
             .Build()
             .Run()

@@ -393,3 +393,4 @@ paket-files/
 src/PairRankWeb/obj
 src/PairRankWeb/bin
 packages
+.ionide/*

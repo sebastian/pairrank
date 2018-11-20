@@ -15,5 +15,4 @@ RUN dotnet publish -c Release -o out
 FROM microsoft/dotnet:2.1-aspnetcore-runtime
 WORKDIR /app
 COPY --from=build /app/PairRankWeb/out ./
-EXPOSE 80
 ENTRYPOINT ["dotnet", "PairRankWeb.dll"]
