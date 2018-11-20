@@ -95,7 +95,7 @@ button.remove {
 
 #comparison {
   display: grid;
-  grid-template-rows: 100px 1fr 1fr;
+  grid-template-rows: 140px 1fr 1fr;
   grid-template-areas: 
     "header"
     "item"

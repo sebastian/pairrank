@@ -200,6 +200,7 @@ module Client =
       let nextPair = View.Map (fun model -> List.head model.PendingCombinations) model
       Templates
         .ComparisonTemplate()
+        .RemainingItemsCount(View.Map (fun model -> sprintf "%i" (List.length model.PendingCombinations)) model)
         .ValueA(nextPair.V.A.Value)
         .ValueB(nextPair.V.B.Value)
         .AWins(fun e ->

@@ -1071,12 +1071,25 @@ if (!console) {
   {
    return function(model)
    {
-    var nextPair,b,t,t$1,_this,_this$1,p,i;
+    var nextPair,b,t,t$1,_this,_this$1,R,_this$2,p,i;
     nextPair=View.Map(function(model$1)
     {
      return List.head(model$1.PendingCombinations);
     },model);
-    return(b=(t=(t$1=(_this=(_this$1=new ProviderBuilder.New$1(),(_this$1.h.push({
+    return(b=(t=(t$1=(_this=(_this$1=(R=View.Map(function(model$1)
+    {
+     return(function($1)
+     {
+      return function($2)
+      {
+       return $1(Global.String($2));
+      };
+     }(Global.id))(List.length(model$1.PendingCombinations));
+    },model),(_this$2=new ProviderBuilder.New$1(),(_this$2.h.push({
+     $:2,
+     $0:"remainingitemscount",
+     $1:R
+    }),_this$2))),(_this$1.h.push({
      $:2,
      $0:"valuea",
      $1:View.Map(function($1)
